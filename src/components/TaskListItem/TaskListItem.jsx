@@ -2,9 +2,7 @@ export default function TaskListItem({item, onDeleteTask, onEditTask, onComplete
 
   return(
       <div>
-        <Form>
-
-        </Form>
+      
         <checkbox>
 
         </checkbox>
