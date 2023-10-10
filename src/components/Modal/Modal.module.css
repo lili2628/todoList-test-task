@@ -1,0 +1,52 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+
+  background-color: #000eaa;
+}
+
+.modalWrapper {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%,-50%);
+
+  background-color: #ffffff;
+  border-radius: 40px;
+  overflow-y: auto;
+}
+
+.crossBtn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  z-index: 10;
+}
+
+.exit {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 16px;
+  margin-right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+
+  cursor: pointer;
+  border: none;
+  background-color: #ffffff;
+}
+
+.cross {
+  fill: #000000;
+  stroke: #000000;
+}
