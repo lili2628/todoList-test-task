@@ -8,6 +8,20 @@
   overflow-y: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
+
+  @media screen and (min-width: 768px) {
+    & {
+      width: 600px;
+      padding: 32px;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    & {
+      width: 800px;
+      padding: 36px;
+    }
+  }
 }
 
 .container::-webkit-scrollbar {

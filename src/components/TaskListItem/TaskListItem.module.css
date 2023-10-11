@@ -1,0 +1,10 @@
+.item{
+  display: flex;
+  justify-content: space-between;
+
+  padding: 10px;
+}
+
+.item_data{
+  width: 200px;
+}

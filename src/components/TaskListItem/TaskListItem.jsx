@@ -1,8 +1,12 @@
 import { useState } from 'react';
 import { FormControlLabel, Checkbox } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
+import IconButton from '@mui/material/IconButton';
 
 import AddEditTaskModal from 'components/AddEditTaskModal';
 import Modal from 'components/Modal';
+import css from './TaskListItem.module.css';
 
 
 
@@ -33,8 +37,8 @@ export default function TaskListItem({item, onDeleteTask, onEditTask, onComplete
 
 
   return(
-    <li>
-      <div>
+    <li className={css.item}>
+      <div className={css.item_data}>
         <p>
         {title}
         </p>
@@ -43,25 +47,27 @@ export default function TaskListItem({item, onDeleteTask, onEditTask, onComplete
         </p>
       </div>
       
-      <FormControlLabel
-        label="Completed"
-        control={
-          <Checkbox
-            name="completed"
-            checked={completeStatus}
-            onChange={handleChangeCheckbox}
-          />
-        }
-      />
+      <div>
+        <FormControlLabel
+          label="Completed"
+          control={
+            <Checkbox
+              name="completed"
+              checked={completeStatus}
+              onChange={handleChangeCheckbox}
+            />
+          }
+        />
 
 
-        <div>
-          <button type="button" onClick={()=> setIsModalShown(true)}>
-            Edit
-          </button>
-          <button type="button" onClick={()=> onDeleteTask(id)}>
-            Delete
-          </button>
+          <div>
+            <IconButton type="button" color='primary' aria-label="edit" onClick={()=> setIsModalShown(true)}>
+              <EditIcon />
+            </IconButton>
+            <IconButton type="button" color='primary' aria-label="delete" onClick={()=> onDeleteTask(id)}>
+              <DeleteIcon />
+            </IconButton>
+          </div>
         </div>
 
         {isModalShow && (
