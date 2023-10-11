@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { ThemeProvider } from '@mui/material/styles';
 import { Button } from '@mui/material';
 
