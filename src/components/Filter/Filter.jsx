@@ -7,9 +7,11 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 import { changeFilter } from 'redux/tasks/tasksSlice';
 
+import css from './Filter.module.css';
 
 
-export default function Filter() {
+
+export default function Filter({disabled}) {
   const dispatch = useDispatch();
 
   const [filterItem, setFilterItem] = useState('all');
@@ -22,10 +24,11 @@ export default function Filter() {
   };
 
   return (
-    <div>
+    <div className={css.filter}>
       <FormControl sx={{ m: 1, minWidth: 100 }}>
         <InputLabel id="demo-simple-select-autowidth-label" >Filter by</InputLabel>
         <Select
+          disabled={disabled}
           labelId="demo-simple-select-autowidth-label"
           id="demo-simple-select-autowidth"
           value={filterItem}

@@ -1,6 +1,9 @@
 .container{
   width: 260px;
-  padding: 24px;
+  padding-top: 24px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 40px;
   margin: 0;
   max-height: calc(100vh - 100px);
 
@@ -12,18 +15,75 @@
   @media screen and (min-width: 768px) {
     & {
       width: 600px;
-      padding: 32px;
+      padding-top: 32px;
+      padding-left: 48px;
+      padding-right: 48px;
+      padding-bottom: 48px;
     }
   }
 
   @media screen and (min-width: 1200px) {
     & {
       width: 800px;
-      padding: 36px;
+      padding-top: 36px;
+      padding-left: 52px;
+      padding-right: 52px;
+      padding-bottom: 52px;
     }
   }
 }
 
 .container::-webkit-scrollbar {
   display: none;
+}
+
+.button{
+  width: 100px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.title,
+.title_field {
+  margin-bottom: 8px;
+  width: 100%;
+
+  @media screen and (min-width: 768px) {
+    & {
+      width: 400px;
+      margin-bottom: 16px;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    & {
+      width: 600px;
+    }
+  }
+}
+
+.description,
+.description_field {
+  margin-bottom: 24px;
+  margin-top: 16px;
+  width: 100%;
+
+  @media screen and (min-width: 768px) {
+    & {
+      width: 400px;
+      margin-top: 16px;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    & {
+      width: 600px;
+    }
+  }
 }

@@ -38,11 +38,11 @@ export default function TaskListItem({item, onDeleteTask, onEditTask, onComplete
 
   return(
     <li className={css.item}>
-      <div className={css.item_data}>
-        <p>
+      <div>
+        <p className={css.item_title}>
         {title}
         </p>
-        <p>
+        <p className={css.item_description}>
         {description}
         </p>
       </div>

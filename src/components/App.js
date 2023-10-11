@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ThemeProvider } from '@mui/material/styles';
 import { Button } from '@mui/material';
 
@@ -28,14 +28,26 @@ function App() {
   };
   const btntitle = "Add";
   let showedTasks = [];
+  let disabled = true;
 
-    if (filterValue === "completed") {
-      showedTasks = allTasks.filter(item =>  item.completeStatus === true);
-    } else if (filterValue === "notcompleted") {
-      showedTasks = allTasks.filter(item => item.completeStatus === false);
-    } else {
-      showedTasks = allTasks;
-    };
+ 
+
+  if (filterValue === "completed") {
+    showedTasks = allTasks.filter(item =>  item.completeStatus === true);
+  } else if (filterValue === "notcompleted") {
+    showedTasks = allTasks.filter(item => item.completeStatus === false);
+  } else {
+    showedTasks = allTasks;
+  };
+
+  if (allTasks === []) {
+    disabled = true;
+    console.log(disabled);
+  } else {
+    disabled = false;
+  };
+  console.log(allTasks);
+  console.log(disabled);
 
   const onDeleteTask = (id) => {
     const tasksAfterDeleting = allTasks.filter(task => task.id !== id);
@@ -98,7 +110,7 @@ function App() {
         <div className={css.wrapper}>
           <Button variant="contained" color='secondary' type="button" className={css.button} onClick={onAddTask} aria-label="add" >Add Task</Button>
 
-          <Filter />
+          <Filter disabled={disabled}/>
         </div>
 
         {showedTasks  && (          
