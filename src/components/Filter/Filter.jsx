@@ -1,18 +1,26 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 import { changeFilter } from 'redux/tasks/tasksSlice';
+import { selectTasks } from 'redux/tasks/selectors';
 
 import css from './Filter.module.css';
 
 
-
-export default function Filter({disabled}) {
+export default function Filter() {
   const dispatch = useDispatch();
+
+  const tasks = useSelector(selectTasks);
+
+  let disabled = false; 
+
+  if (tasks.length === 0) {
+    disabled = true;
+  }; 
 
   const [filterItem, setFilterItem] = useState('all');
 
