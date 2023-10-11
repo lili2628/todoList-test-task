@@ -47,6 +47,7 @@ export default function TaskListItem({item, onDeleteTask, onEditTask, onComplete
         label="Completed"
         control={
           <Checkbox
+            name="completed"
             checked={completeStatus}
             onChange={handleChangeCheckbox}
           />

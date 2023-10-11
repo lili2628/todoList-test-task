@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
 
-import { selectTasks } from 'redux/tasks/selectors';
+import { selectFilter, selectTasks } from 'redux/tasks/selectors';
 import { addTask, editTask } from 'redux/tasks/tasksSlice';
 import Filter from 'components/Filter';
 import TaskList from 'components/TaskList';
@@ -15,7 +15,8 @@ import css from './App.css';
 function App() {
 
 const dispatch = useDispatch();
-const tasks = useSelector(selectTasks);
+const allTasks = useSelector(selectTasks);
+const filterValue = useSelector(selectFilter);
 const [isModalShow, setIsModalShown] = useState(false);
 const initialValues = {
   title: "",
@@ -23,15 +24,27 @@ const initialValues = {
 };
 const btntitle = "Add";
 
+let showedTasks = [];
+
+  if (filterValue === "completed") {
+
+    showedTasks = allTasks.filter(item =>  item.completeStatus === true);
+  } else if (filterValue === "notcompleted") {
+    showedTasks = allTasks.filter(item => item.completeStatus === false);
+  } else {
+    showedTasks = allTasks;
+  };
+
+
 const onDeleteTask = (id) => {
-  const tasksAfterDeleting = tasks.filter(task => task.id !== id);
+  const tasksAfterDeleting = allTasks.filter(task => task.id !== id);
 
   dispatch(editTask(tasksAfterDeleting));
 };
 
 const  onCompletedTask = (id, status) => {
 
-  const newTasks = tasks.map(item => {
+  const newTasks = allTasks.map(item => {
     if (item.id === id) {
       return {
         ...item,
@@ -69,9 +82,7 @@ const handleSubmit = (values, {resetForm}) => {
 
 const onEditTask = (values, id) => {
 
-  console.log(id, values);
-
-  const newTasks = tasks.map(item => {
+  const newTasks = allTasks.map(item => {
     if (item.id === id) {
       return {
         ...item,
@@ -94,9 +105,9 @@ const onEditTask = (values, id) => {
         <Filter />
       </div>
 
-      {tasks && (
+      {showedTasks && (
         <TaskList
-            tasks={tasks}
+            tasks={showedTasks}
             onCompletedTask={onCompletedTask}
             onEditTask={onEditTask}
             onDeleteTask={onDeleteTask}

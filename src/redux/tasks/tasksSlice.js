@@ -17,9 +17,12 @@ const tasksSlice = createSlice({
     editTask: (state,action) => {
       state.taskItems = action.payload;
     },
+    changeFilter: (state, action) => {
+      state.filter = action.payload;
+    }
   },
 });
 
 export const tasksReducer = tasksSlice.reducer;
 
-export const {addTask, deleteTask, editTask} = tasksSlice.actions;
+export const {addTask, editTask, changeFilter} = tasksSlice.actions;
