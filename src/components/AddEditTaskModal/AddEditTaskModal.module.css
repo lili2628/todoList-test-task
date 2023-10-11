@@ -1,0 +1,15 @@
+.container{
+  width: 260px;
+  padding: 24px;
+  margin: 0;
+  max-height: calc(100vh - 100px);
+
+  overflow-x: hidden;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.container::-webkit-scrollbar {
+  display: none;
+}

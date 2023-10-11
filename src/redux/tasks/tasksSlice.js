@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   taskItems: [],
+  filter: "all",
 };
 
 
@@ -12,9 +13,6 @@ const tasksSlice = createSlice({
   reducers: {
     addTask: (state,action) => {
       state.taskItems = [...state.taskItems, action.payload];
-    },
-    deleteTask: (state,action) => {
-      state.taskItems = action.payload;
     },
     editTask: (state,action) => {
       state.taskItems = action.payload;
