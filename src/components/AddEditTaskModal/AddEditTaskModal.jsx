@@ -28,7 +28,7 @@ export default function AddEditTaskModal({handleSubmit, initialValues, btntitle}
                     <TextField
                       name={props.field.name}
                       className={css.title}
-                      styled={{marginBottom: 16}}
+                      sx={{marginBottom: 2}}
                       variant="outlined"
                       placeholder={props.field.name}
                       label={props.field.name}
@@ -51,7 +51,7 @@ export default function AddEditTaskModal({handleSubmit, initialValues, btntitle}
                       <TextField
                         name={props.field.name}
                         className={css.description}
-                        styled={{marginBottom: 30}}
+                        sx={{marginBottom: 4, marginTop: 2}}
                         variant="outlined"
                         multiline
                         maxRows={4}
