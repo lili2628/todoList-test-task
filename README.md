@@ -5,7 +5,7 @@
 
 > --- Edit / Delete task by click on corresponding icon buttons
 
-> --- -- Edit / Delete task by click on corresponding icon buttons
+> --- Edit / Delete task by click on corresponding icon buttons
 
 > --- Mark task as completed by click on checkbox 
 
